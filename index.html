@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- metadata -->
+		<title>Where Should I Eat Today?</title>
+		<meta charset="utf-8">
+
+		<!-- styles -->
+		<link rel="stylesheet" href="styles.css">
+
+		<!-- favicons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+		<link rel="manifest" href="favicons/site.webmanifest">
+		
+		<!-- Google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<img src="burger.png" alt="" style="width:10%;margin-top:5%;">
+			<h1 style="margin-top:0px;">Where Should I Eat Today?</h1>
+			
+			<!-- lists -->
+			<h2>Open:</h2>
+			<ul id="open"></ul>
+			<h2>Closed:</h2>
+			<ul id="closed"></ul>
+		</div>
+
+		<!-- modal - add form -->
+		<div id="addModal" class="modal modal-hidden">
+			<form id="addForm" class="modal-content">
+				<button type="button" class="close-modal" onclick="toggleModalVisibility('addModal');">&times;</button>
+				<h2>Add a Restaurant:</h2>
+				<label for="addName">Name:</label><input type="text" id="addName">
+				<br>
+				<fieldset>
+					<legend>Sundays:</legend>
+					<label for="addSunOpen">Open:</label><input type="time" id="addSunOpen" value="09:00">
+					<label for="addSunClose">Close:</label><input type="time" id="addSunClose" value="17:00">
+				</fieldset>
+				<fieldset>
+					<legend>Mondays:</legend>
+					<label for="addMonOpen">Open:</label><input type="time" id="addMonOpen" value="09:00">
+					<label for="addMonClose">Close:</label><input type="time" id="addMonClose" value="17:00">
+				</fieldset>
+				<fieldset>
+					<legend>Tuesdays:</legend>
+					<label for="addTueOpen">Open:</label><input type="time" id="addTueOpen" value="09:00">
+					<label for="addTueClose">Close:</label><input type="time" id="addTueClose" value="17:00">
+				</fieldset>
+				<fieldset>
+					<legend>Wednesdays:</legend>
+					<label for="addWedOpen">Open:</label><input type="time" id="addWedOpen" value="09:00">
+					<label for="addWedClose">Close:</label><input type="time" id="addWedClose" value="17:00">
+				</fieldset>
+				<fieldset>
+					<legend>Thursdays:</legend>
+					<label for="addThuOpen">Open:</label><input type="time" id="addThuOpen" value="09:00">
+					<label for="addThuClose">Close:</label><input type="time" id="addThuClose" value="17:00">
+				</fieldset>
+				<fieldset>
+					<legend>Fridays:</legend>
+					<label for="addFriOpen">Open:</label><input type="time" id="addFriOpen" value="09:00">
+					<label for="addFriClose">Close:</label><input type="time" id="addFriClose" value="17:00">
+				</fieldset>
+				<fieldset>
+					<legend>Saturdays:</legend>
+					<label for="addSatOpen">Open:</label><input type="time" id="addSatOpen" value="09:00">
+					<label for="addSatClose">Close:</label><input type="time" id="addSatClose" value="17:00">
+				</fieldset>
+				<button type="button" onclick="addRestaurant();">Add</button>
+			</form>
+		</div>
+
+		<!-- modal - remove form -->
+		<div id="removeModal" class="modal modal-hidden">
+			<form id="removeForm" class="modal-content">
+				<button type="button" class="close-modal" onclick="toggleModalVisibility('removeModal');">&times;</button>
+				<h2>Remove a Restaurant:</h2>
+				<ul id="removeList">
+				</ul>
+			</form>
+		</div>
+
+		<!-- modal - random result -->
+		<div id="randomModal" class="modal modal-hidden">
+			<div class="modal-content">
+				<button type="button" class="close-modal" onclick="toggleModalVisibility('randomModal');">&times;</button>
+				<p id="random-result"></p>
+			</div>
+		</div>
+
+		<div class="bottom-bar">
+			<button onclick="chooseRandom();">Choose Random</button>
+			<button onclick="toggleModalVisibility('addModal');">Add Restaurant</button>
+			<button onclick="toggleModalVisibility('removeModal');">Remove Restaurant</button>
+			<button onclick="refreshLists();">Refresh Lists</button>
+			<button onclick="resetData();">Reset Data</button>
+		</div>
+	</body>
+	
+	<footer>
+		<p class="footer-text"><strong>Where Should I Eat Today? v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a></p>
+
+		<!-- scripts -->
+		<script src="script.js"></script>
+	</footer>
+</html>
