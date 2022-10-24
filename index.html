@@ -18,6 +18,9 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -33,48 +36,62 @@
 
 		<!-- modal - add form -->
 		<div id="addModal" class="modal modal-hidden">
-			<form id="addForm" class="modal-content">
+			<div id="addForm" class="modal-content">
 				<button type="button" class="close-modal" onclick="toggleModalVisibility('addModal');">&times;</button>
 				<h2>Add a Restaurant:</h2>
-				<label for="addName">Name:</label><input type="text" id="addName">
-				<br>
-				<fieldset>
-					<legend>Sundays:</legend>
-					<label for="addSunOpen">Open:</label><input type="time" id="addSunOpen" value="09:00">
-					<label for="addSunClose">Close:</label><input type="time" id="addSunClose" value="17:00">
-				</fieldset>
-				<fieldset>
-					<legend>Mondays:</legend>
-					<label for="addMonOpen">Open:</label><input type="time" id="addMonOpen" value="09:00">
-					<label for="addMonClose">Close:</label><input type="time" id="addMonClose" value="17:00">
-				</fieldset>
-				<fieldset>
-					<legend>Tuesdays:</legend>
-					<label for="addTueOpen">Open:</label><input type="time" id="addTueOpen" value="09:00">
-					<label for="addTueClose">Close:</label><input type="time" id="addTueClose" value="17:00">
-				</fieldset>
-				<fieldset>
-					<legend>Wednesdays:</legend>
-					<label for="addWedOpen">Open:</label><input type="time" id="addWedOpen" value="09:00">
-					<label for="addWedClose">Close:</label><input type="time" id="addWedClose" value="17:00">
-				</fieldset>
-				<fieldset>
-					<legend>Thursdays:</legend>
-					<label for="addThuOpen">Open:</label><input type="time" id="addThuOpen" value="09:00">
-					<label for="addThuClose">Close:</label><input type="time" id="addThuClose" value="17:00">
-				</fieldset>
-				<fieldset>
-					<legend>Fridays:</legend>
-					<label for="addFriOpen">Open:</label><input type="time" id="addFriOpen" value="09:00">
-					<label for="addFriClose">Close:</label><input type="time" id="addFriClose" value="17:00">
-				</fieldset>
-				<fieldset>
-					<legend>Saturdays:</legend>
-					<label for="addSatOpen">Open:</label><input type="time" id="addSatOpen" value="09:00">
-					<label for="addSatClose">Close:</label><input type="time" id="addSatClose" value="17:00">
-				</fieldset>
-				<button type="button" onclick="addRestaurant();">Add</button>
-			</form>
+
+				<!-- auto -->
+				<div id="addAuto">
+					<label for="searchName">Restaurant:</label><input type="text" id="searchName" value="Mcdonald's">
+					<label for="searchZip">Near:</label><input type="text" id="searchZip" value="03301">
+					<button id="searchButton" type="button" onclick="searchRestaurants();">Search</button>
+					<p id="searchStatus" display="none"></p>
+					<ul id="searchResults"></ul>
+					<button id="manualSwitch" style="display:none;" type="button" onclick="switchToManual();">Add Restaurant Manually</button>
+				</div>
+
+				<!-- manual -->
+				<div id="addManual" style="display:none;">
+					<label for="addName">Name:</label><input type="text" id="addName">
+					<br>
+					<fieldset>
+						<legend>Sundays:</legend>
+						<label for="addSunOpen">Open:</label><input type="time" id="addSunOpen" value="09:00">
+						<label for="addSunClose">Close:</label><input type="time" id="addSunClose" value="17:00">
+					</fieldset>
+					<fieldset>
+						<legend>Mondays:</legend>
+						<label for="addMonOpen">Open:</label><input type="time" id="addMonOpen" value="09:00">
+						<label for="addMonClose">Close:</label><input type="time" id="addMonClose" value="17:00">
+					</fieldset>
+					<fieldset>
+						<legend>Tuesdays:</legend>
+						<label for="addTueOpen">Open:</label><input type="time" id="addTueOpen" value="09:00">
+						<label for="addTueClose">Close:</label><input type="time" id="addTueClose" value="17:00">
+					</fieldset>
+					<fieldset>
+						<legend>Wednesdays:</legend>
+						<label for="addWedOpen">Open:</label><input type="time" id="addWedOpen" value="09:00">
+						<label for="addWedClose">Close:</label><input type="time" id="addWedClose" value="17:00">
+					</fieldset>
+					<fieldset>
+						<legend>Thursdays:</legend>
+						<label for="addThuOpen">Open:</label><input type="time" id="addThuOpen" value="09:00">
+						<label for="addThuClose">Close:</label><input type="time" id="addThuClose" value="17:00">
+					</fieldset>
+					<fieldset>
+						<legend>Fridays:</legend>
+						<label for="addFriOpen">Open:</label><input type="time" id="addFriOpen" value="09:00">
+						<label for="addFriClose">Close:</label><input type="time" id="addFriClose" value="17:00">
+					</fieldset>
+					<fieldset>
+						<legend>Saturdays:</legend>
+						<label for="addSatOpen">Open:</label><input type="time" id="addSatOpen" value="09:00">
+						<label for="addSatClose">Close:</label><input type="time" id="addSatClose" value="17:00">
+					</fieldset>
+					<button type="button" onclick="addRestaurant();">Add</button>
+				</div>
+			</div>
 		</div>
 
 		<!-- modal - remove form -->
