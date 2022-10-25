@@ -2,12 +2,15 @@ var data = {};
 var random = [];
 var currentRaw = new Date();
 
-/*var currentDay = currentRaw.getDay();
-var currentTime = (currentRaw.getHours()*100)+currentRaw.getMinutes();*/
+var currentDay = currentRaw.getDay();
+var currentTime = (currentRaw.getHours()*100)+currentRaw.getMinutes();
 
-var currentDay = 0;
-var currentTime = 0030;
-console.log("Day/Time: " + currentDay + "/" + currentTime);
+/*
+var currentDay = 6;
+var currentTime = 2230;
+$("body").prepend("<p style='color:#a91c17;'>Day/Time: " + currentDay + "/" + currentTime + "</p>");
+*/
+
 
 retrieveData();
 refreshLists();
@@ -31,6 +34,8 @@ function refreshLists(){
         item.append(button);
         document.getElementById("removeList").append(item);
     }
+    alphabetize("#open");
+    alphabetize("#closed");
 }
 
 function checkIfOpen(rest){
@@ -49,7 +54,7 @@ function checkIfOpen(rest){
                       // if closing soon
                       toAppend.append(rest.name);
                       var closingSoon = document.createElement("span");
-                      closingSoon.innerHTML = " (Closing Soon!)";
+                      closingSoon.innerHTML = " <img class='closing-icon red-filter' src='icons/clock.svg' title='Closing Soon!'>";
                       toAppend.append(closingSoon);
                     }
                     else{
@@ -70,7 +75,7 @@ function checkIfOpen(rest){
                 // if closing soon
                 toAppend.append(rest.name);
                 var closingSoon = document.createElement("span");
-                closingSoon.innerHTML = " (Closing Soon!)";
+                closingSoon.innerHTML = " <img class='closing-icon red-filter' src='icons/clock.svg' title='Closing Soon!'>";
                 toAppend.append(closingSoon);
               }
               else{
@@ -89,7 +94,7 @@ function checkIfOpen(rest){
           var toAppend = document.createElement("li");
           toAppend.append(rest.name);
           var openingSoon = document.createElement("span");
-          openingSoon.innerHTML = " (Opening Soon!)";
+          openingSoon.innerHTML = " <img class='closing-icon green-filter' src='icons/clock.svg' title='Opening Soon!'>";
           toAppend.append(openingSoon);
           document.getElementById("closed").append(toAppend);
           // exit function
@@ -103,22 +108,36 @@ function checkIfOpen(rest){
 }
 
 function addRestaurant(){
-
+  /* input validation */
+  $(".error-alert").remove();
+  if(document.getElementById("addName").value == ""){
+    $("#addManual").append("<p class='error-alert'>Error: Missing restaurant name.</p>");
+  }
+  else if(document.getElementById("addMonOpen").value >= document.getElementById("addMonClose").value ||
+  document.getElementById("addTueOpen").value >= document.getElementById("addTueClose").value ||
+  document.getElementById("addWedOpen").value >= document.getElementById("addWedClose").value ||
+  document.getElementById("addThuOpen").value >= document.getElementById("addThuClose").value ||
+  document.getElementById("addFriOpen").value >= document.getElementById("addFriClose").value ||
+  document.getElementById("addSatOpen").value >= document.getElementById("addSatClose").value ||
+  document.getElementById("addSunOpen").value >= document.getElementById("addSunClose").value){
+    $("#addManual").append("<p class='error-alert'>Error: Opening times must be before closing times.</p>");
+  }
+  else{
     var hoursArray = [];
 
     function getAddTime(addId){
-        return document.getElementById(addId).value.replace(":","");
+      return document.getElementById(addId).value.replace(":","");
     }
 
     function collectHours(day, num){
-        if(document.getElementById("add" + day + "Open").value){
-            hoursArray.push({
-                "open": { "day": num, "time": getAddTime("add" + day + "Open")},
-                "close": { "day": num, "time": getAddTime("add" + day + "Close") }
-              });
-        }
+      if(document.getElementById("add" + day + "Open").value){
+        hoursArray.push({
+          "open": { "day": num, "time": getAddTime("add" + day + "Open")},
+          "close": { "day": num, "time": getAddTime("add" + day + "Close") }
+        });
+      }
     }
-
+      
     collectHours("Mon", 1);
     collectHours("Tue", 2);
     collectHours("Wed", 3);
@@ -128,15 +147,14 @@ function addRestaurant(){
     collectHours("Sun", 7);
 
     data.restaurants.push({
-        "name": document.getElementById("addName").value,
-        "hours": hoursArray
+      "name": document.getElementById("addName").value,
+      "hours": hoursArray
     })
 
     saveData();
     refreshLists();
-    document.getElementById("addModal").classList.add("modal-hidden");
-
-    console.log("Updated Data:" + JSON.stringify(data));
+    document.getElementById("addModal").classList.add("modal-hidden");  
+  }
 }
 
 function removeRestaurant(remName){
@@ -174,6 +192,7 @@ function toggleModalVisibility(modal){
   $("#searchResults").html("");
   $("#manualSwitch").hide();
   $("#searchStatus").hide();
+  $(".error-alert").remove();
 }
 
 function resetData(){
@@ -251,6 +270,14 @@ function switchToAuto(){
   $("#addAuto").show();
 }
 
+function alphabetize(list){
+  var mylist = $(list);
+  var listitems = mylist.children('li').get();
+  listitems.sort(function(a, b) {
+    return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+  })
+  $.each(listitems, function(idx, itm) { mylist.append(itm); });
+}
 
 /* keyboard support for forms */
 
@@ -268,7 +295,20 @@ function preventSubmit(form){
   });
 }
 
+function escapeSupport(){
+  $(document).keyup(function(e) {
+    if(e.which == 27) {
+      $(".modal").addClass("modal-hidden");
+      $("#searchStatus").hide();
+      switchToAuto();
+      $("#searchResults").html("");
+      $("#manualSwitch").hide();
+      $("#searchStatus").hide();
+      $(".error-alert").remove();
+    }
+  });
+}
+
 formKeyboardSupport("#addAuto input", "#addAuto #searchButton");
 preventSubmit("#addAuto");
-
-
+escapeSupport();

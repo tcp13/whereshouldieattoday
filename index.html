@@ -24,14 +24,13 @@
 	</head>
 	<body>
 		<div class="container">
-			<img src="burger.png" alt="" style="width:10%;margin-top:5%;">
-			<h1 style="margin-top:0px;">Where Should I Eat Today?</h1>
+			<img src="burger.png" alt="" style="width:3.157rem;padding-right:15px;vertical-align: -22%;">
+			<h1 style="display:inline;">Where Should I Eat Today?</h1>
 			
 			<!-- lists -->
-			<h2>Open:</h2>
-			<ul id="open"></ul>
-			<h2>Closed:</h2>
-			<ul id="closed"></ul>
+			<ul id="open" style="margin-top:3rem;"></ul>
+			<h2 style="font-size:1.777rem;">Currently Closed:</h2>
+			<ul id="closed" style="margin-bottom:100px;"></ul>
 		</div>
 
 		<!-- modal - add form -->
@@ -42,8 +41,8 @@
 
 				<!-- auto -->
 				<div id="addAuto">
-					<label for="searchName">Restaurant:</label><input type="text" id="searchName" value="Mcdonald's">
-					<label for="searchZip">Near:</label><input type="text" id="searchZip" value="03301">
+					<label for="searchName">Restaurant:</label><input type="text" id="searchName" value="McDonald's">
+					<label for="searchZip">Near:</label><input type="text" id="searchZip" value="90210">
 					<button id="searchButton" type="button" onclick="searchRestaurants();">Search</button>
 					<p id="searchStatus" display="none"></p>
 					<ul id="searchResults"></ul>
@@ -108,21 +107,34 @@
 		<div id="randomModal" class="modal modal-hidden">
 			<div class="modal-content">
 				<button type="button" class="close-modal" onclick="toggleModalVisibility('randomModal');">&times;</button>
+				<p style="margin-bottom:0px;margin-top:3rem;">You should eat at...</p>
 				<p id="random-result"></p>
 			</div>
 		</div>
 
-		<div class="bottom-bar">
-			<button onclick="chooseRandom();">Choose Random</button>
-			<button onclick="toggleModalVisibility('addModal');">Add Restaurant</button>
-			<button onclick="toggleModalVisibility('removeModal');">Remove Restaurant</button>
-			<button onclick="refreshLists();">Refresh Lists</button>
-			<button onclick="resetData();">Reset Data</button>
-		</div>
+		
 	</body>
 	
 	<footer>
-		<p class="footer-text"><strong>Where Should I Eat Today? v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a></p>
+		<button onclick="chooseRandom();">
+			<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M36.5 44q-.65 0-1.075-.425Q35 43.15 35 42.5V28h-2.75q-1.25 0-2.125-.875T29.25 25V12.75q0-3.95 2.4-6.35Q34.05 4 38 4v38.5q0 .65-.425 1.075Q37.15 44 36.5 44Zm-20.75 0q-.65 0-1.075-.425-.425-.425-.425-1.075V25.6q-2.6-.55-4.425-2.625Q8 20.9 8 18V5.5q0-.65.425-1.075Q8.85 4 9.5 4q.65 0 1.075.425Q11 4.85 11 5.5V18h3.25V5.5q0-.65.425-1.075Q15.1 4 15.75 4q.65 0 1.075.425.425.425.425 1.075V18h3.25V5.5q0-.65.425-1.075Q21.35 4 22 4q.65 0 1.075.425.425.425.425 1.075V18q0 2.9-1.825 4.975Q19.85 25.05 17.25 25.6v16.9q0 .65-.425 1.075Q16.4 44 15.75 44Z"/></svg>
+			<span class="nav-text">Random</span>
+		</button>
+		<button onclick="toggleModalVisibility('addModal');">
+			<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M24 38.85q-1 0-1.675-.675T21.65 36.5V26.35H11.5q-1 0-1.675-.675T9.15 24q0-1 .675-1.675t1.675-.675h10.15V11.5q0-1 .675-1.675T24 9.15q1 0 1.675.675t.675 1.675v10.15H36.5q1 0 1.675.675T38.85 24q0 1-.675 1.675t-1.675.675H26.35V36.5q0 1-.675 1.675T24 38.85Z"/></svg>
+			<span class="nav-text">Add</span>
+		</button>
+		<button onclick="toggleModalVisibility('removeModal');">
+			<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M11.5 26.35q-1 0-1.675-.675T9.15 24q0-1 .675-1.675t1.675-.675h25q1 0 1.675.675T38.85 24q0 1-.675 1.675t-1.675.675Z"/></svg>
+			<span class="nav-text">Remove</span>
+		</button>
+
+		<!--
+		<button onclick="refreshLists();">Refresh Lists</button>
+		<button onclick="resetData();">Reset Data</button>
+		-->
+
+		<p class="footer-text"><strong>WSIET? v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a></p>
 
 		<!-- scripts -->
 		<script src="script.js"></script>
