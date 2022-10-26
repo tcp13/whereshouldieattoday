@@ -59,6 +59,9 @@ ul#open li, ul#closed li{
     margin-bottom:1rem;
     line-height: 1rem;
 }
+
+
+/* icon colors */
 .red-filter{
     filter: invert(13%) sepia(59%) saturate(4997%) hue-rotate(353deg) brightness(95%) contrast(91%);
 }
@@ -117,6 +120,10 @@ h2 {font-size: 2.369rem;}
 h3 {font-size: 1.777rem;}
 h4 {font-size: 1.333rem;}
 p {margin-bottom: 1rem;}
+input, button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.75rem;
+}
 a {color: #a91c17;}
 a:hover {color:#0f0f0f;}
 .footer-text {
@@ -142,6 +149,84 @@ a:hover {color:#0f0f0f;}
     line-height:1.5;
 }
 .error-alert{color: #a91c17;}
+.search-input{
+    /*width: 100%;*/
+    padding: 12px;
+    margin: 6px 0 4px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    box-sizing: border-box;
+    border-radius: 2px;
+    display:block;
+    width:100%;
+}
+.search-field{
+    float:left;
+}
+.search-field label{
+    display:block;
+    line-height:1;
+}
+fieldset{
+    padding: 12px;
+    margin: 6px 0 4px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    box-sizing: border-box;
+    border-radius: 2px;
+    display:block;
+    width:100%;
+}
+fieldset input{
+    padding: 12px;
+    margin: 6px 0 4px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    box-sizing: border-box;
+    border-radius: 2px;
+    display:block;
+    width:100%;
+}
+fieldset div{
+    width:40%;
+    float:left;
+}
+fieldset div:nth-child(odd){
+    margin-left:3%;
+}
+legend{
+    font-weight:700;
+}
+button{
+    padding: 0.8rem 1.336rem;
+    border: 2px solid #0f0f0f;
+    background: #fafafa;
+    color:#0f0f0f;
+    border-radius:2px;
+}
+button:hover{
+    background: #0f0f0f;
+    color:#f0f0f0;
+    cursor:pointer;
+}
+#searchButton{
+    margin-top:15px;
+}
+#searchStatus{
+    display:inline;
+    margin-left:20px;
+}
+#searchResults, #removeList{
+    list-style: none;
+    padding-left: 0px;
+}
+#searchResults button, #removeList button{
+    width:100%;
+    margin-bottom:5px;
+}
+#removeList button:hover{
+    background-color: #a91c17;
+}
 
 
 
@@ -164,18 +249,19 @@ a:hover {color:#0f0f0f;}
     margin: 5% auto;
     padding: 5%;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
 }
 .close-modal {
-    color: #aaa;
+    color: #0f0f0f;
     float: right;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
+    padding: 5px 15px 5px 15px;
 }
 
 .close-modal:hover,
 .close-modal:focus {
-    color: black;
+    color: #f0f0f0;
     text-decoration: none;
     cursor: pointer;
 }

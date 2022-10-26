@@ -29,64 +29,104 @@
 			
 			<!-- lists -->
 			<ul id="open" style="margin-top:3rem;"></ul>
-			<h2 style="font-size:1.777rem;">Currently Closed:</h2>
+			<h2 id="closedHeading" style="font-size:1.777rem;">Currently Closed:</h2>
 			<ul id="closed" style="margin-bottom:100px;"></ul>
 		</div>
 
 		<!-- modal - add form -->
 		<div id="addModal" class="modal modal-hidden">
 			<div id="addForm" class="modal-content">
-				<button type="button" class="close-modal" onclick="toggleModalVisibility('addModal');">&times;</button>
+				<button aria-label="close popup" type="button" class="close-modal" onclick="toggleModalVisibility('addModal');">&times;</button>
 				<h2>Add a Restaurant:</h2>
 
 				<!-- auto -->
 				<div id="addAuto">
-					<label for="searchName">Restaurant:</label><input type="text" id="searchName" value="McDonald's">
-					<label for="searchZip">Near:</label><input type="text" id="searchZip" value="90210">
-					<button id="searchButton" type="button" onclick="searchRestaurants();">Search</button>
-					<p id="searchStatus" display="none"></p>
+					<div class="search-field" style="width:70%;">
+						<label for="searchName">Restaurant:</label><input class="search-input" type="text" id="searchName" placeholder="McDonald's" autocomplete="off">
+					</div>
+					<div class="search-field" style="margin-left:3%; width:27%;">
+						<label for="searchZip">Near:</label><input class="search-input" type="text" id="searchZip" placeholder="90210" autocomplete="off">
+					</div>
+					<br>
+					<div style="clear:left;width:100%;">
+						<button id="searchButton" type="button" onclick="searchRestaurants();">Search</button>
+						<p id="searchStatus"></p>
+					</div>
+					
+					
+					
+					
+					
 					<ul id="searchResults"></ul>
 					<button id="manualSwitch" style="display:none;" type="button" onclick="switchToManual();">Add Restaurant Manually</button>
 				</div>
 
 				<!-- manual -->
 				<div id="addManual" style="display:none;">
-					<label for="addName">Name:</label><input type="text" id="addName">
+					<label for="addName">Name:</label><input class="search-input" type="text" id="addName">
 					<br>
 					<fieldset>
 						<legend>Sundays:</legend>
-						<label for="addSunOpen">Open:</label><input type="time" id="addSunOpen" value="09:00">
-						<label for="addSunClose">Close:</label><input type="time" id="addSunClose" value="17:00">
+						<div>
+							<label for="addSunOpen">Open:</label><input type="time" id="addSunOpen" value="09:00">
+						</div>
+						<div>
+							<label for="addSunClose">Close:</label><input type="time" id="addSunClose" value="17:00">
+						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Mondays:</legend>
-						<label for="addMonOpen">Open:</label><input type="time" id="addMonOpen" value="09:00">
-						<label for="addMonClose">Close:</label><input type="time" id="addMonClose" value="17:00">
+						<div>
+							<label for="addMonOpen">Open:</label><input type="time" id="addMonOpen" value="09:00">
+						</div>
+						<div>
+							<label for="addMonClose">Close:</label><input type="time" id="addMonClose" value="17:00">
+						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Tuesdays:</legend>
-						<label for="addTueOpen">Open:</label><input type="time" id="addTueOpen" value="09:00">
-						<label for="addTueClose">Close:</label><input type="time" id="addTueClose" value="17:00">
+						<div>
+							<label for="addTueOpen">Open:</label><input type="time" id="addTueOpen" value="09:00">
+						</div>
+						<div>
+							<label for="addTueClose">Close:</label><input type="time" id="addTueClose" value="17:00">
+						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Wednesdays:</legend>
-						<label for="addWedOpen">Open:</label><input type="time" id="addWedOpen" value="09:00">
-						<label for="addWedClose">Close:</label><input type="time" id="addWedClose" value="17:00">
+						<div>
+							<label for="addWedOpen">Open:</label><input type="time" id="addWedOpen" value="09:00">
+						</div>
+						<div>
+							<label for="addWedClose">Close:</label><input type="time" id="addWedClose" value="17:00">
+						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Thursdays:</legend>
-						<label for="addThuOpen">Open:</label><input type="time" id="addThuOpen" value="09:00">
-						<label for="addThuClose">Close:</label><input type="time" id="addThuClose" value="17:00">
+						<div>
+							<label for="addThuOpen">Open:</label><input type="time" id="addThuOpen" value="09:00">
+						</div>
+						<div>
+							<label for="addThuClose">Close:</label><input type="time" id="addThuClose" value="17:00">
+						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Fridays:</legend>
-						<label for="addFriOpen">Open:</label><input type="time" id="addFriOpen" value="09:00">
-						<label for="addFriClose">Close:</label><input type="time" id="addFriClose" value="17:00">
+						<div>
+							<label for="addFriOpen">Open:</label><input type="time" id="addFriOpen" value="09:00">
+						</div>
+						<div>
+							<label for="addFriClose">Close:</label><input type="time" id="addFriClose" value="17:00">
+						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Saturdays:</legend>
-						<label for="addSatOpen">Open:</label><input type="time" id="addSatOpen" value="09:00">
-						<label for="addSatClose">Close:</label><input type="time" id="addSatClose" value="17:00">
+						<div>
+							<label for="addSatOpen">Open:</label><input type="time" id="addSatOpen" value="09:00">
+						</div>
+						<div>
+							<label for="addSatClose">Close:</label><input type="time" id="addSatClose" value="17:00">
+						</div>
 					</fieldset>
 					<button type="button" onclick="addRestaurant();">Add</button>
 				</div>
@@ -96,7 +136,7 @@
 		<!-- modal - remove form -->
 		<div id="removeModal" class="modal modal-hidden">
 			<form id="removeForm" class="modal-content">
-				<button type="button" class="close-modal" onclick="toggleModalVisibility('removeModal');">&times;</button>
+				<button aria-label="close popup" type="button" class="close-modal" onclick="toggleModalVisibility('removeModal');">&times;</button>
 				<h2>Remove a Restaurant:</h2>
 				<ul id="removeList">
 				</ul>
@@ -106,7 +146,7 @@
 		<!-- modal - random result -->
 		<div id="randomModal" class="modal modal-hidden">
 			<div class="modal-content">
-				<button type="button" class="close-modal" onclick="toggleModalVisibility('randomModal');">&times;</button>
+				<button aria-label="close popup" type="button" class="close-modal" onclick="toggleModalVisibility('randomModal');">&times;</button>
 				<p style="margin-bottom:0px;margin-top:3rem;">You should eat at...</p>
 				<p id="random-result"></p>
 			</div>
@@ -120,7 +160,7 @@
 			<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M36.5 44q-.65 0-1.075-.425Q35 43.15 35 42.5V28h-2.75q-1.25 0-2.125-.875T29.25 25V12.75q0-3.95 2.4-6.35Q34.05 4 38 4v38.5q0 .65-.425 1.075Q37.15 44 36.5 44Zm-20.75 0q-.65 0-1.075-.425-.425-.425-.425-1.075V25.6q-2.6-.55-4.425-2.625Q8 20.9 8 18V5.5q0-.65.425-1.075Q8.85 4 9.5 4q.65 0 1.075.425Q11 4.85 11 5.5V18h3.25V5.5q0-.65.425-1.075Q15.1 4 15.75 4q.65 0 1.075.425.425.425.425 1.075V18h3.25V5.5q0-.65.425-1.075Q21.35 4 22 4q.65 0 1.075.425.425.425.425 1.075V18q0 2.9-1.825 4.975Q19.85 25.05 17.25 25.6v16.9q0 .65-.425 1.075Q16.4 44 15.75 44Z"/></svg>
 			<span class="nav-text">Random</span>
 		</button>
-		<button onclick="toggleModalVisibility('addModal');">
+		<button onclick="toggleModalVisibility('addModal');locateZip();">
 			<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M24 38.85q-1 0-1.675-.675T21.65 36.5V26.35H11.5q-1 0-1.675-.675T9.15 24q0-1 .675-1.675t1.675-.675h10.15V11.5q0-1 .675-1.675T24 9.15q1 0 1.675.675t.675 1.675v10.15H36.5q1 0 1.675.675T38.85 24q0 1-.675 1.675t-1.675.675H26.35V36.5q0 1-.675 1.675T24 38.85Z"/></svg>
 			<span class="nav-text">Add</span>
 		</button>
@@ -134,7 +174,7 @@
 		<button onclick="resetData();">Reset Data</button>
 		-->
 
-		<p class="footer-text"><strong>WSIET? v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a></p>
+		<p class="footer-text"><strong>WSIET? v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a> | <a href="https://tyler-puckett.com/#page-section-627c16fe9e1aa7738a176d15" target="_blank">Feedback</a></p>
 
 		<!-- scripts -->
 		<script src="script.js"></script>
