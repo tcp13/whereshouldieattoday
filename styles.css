@@ -59,6 +59,12 @@ ul#open li, ul#closed li{
     margin-bottom:1rem;
     line-height: 1rem;
 }
+#importForm, #exportForm{
+    width:50%;
+    margin-bottom:5%;
+    float:left;
+    display:inline;
+}
 
 
 /* icon colors */
@@ -84,6 +90,11 @@ ul#open li, ul#closed li{
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
+    }
+    #importForm, #exportForm{
+        width:100%;
+        margin-bottom:10%;
+        display:block;
     }
 }
 @media only screen and (max-width: 700px) {
@@ -177,7 +188,7 @@ fieldset{
     display:block;
     width:100%;
 }
-fieldset input{
+fieldset input[type='time']{
     padding: 12px;
     margin: 6px 0 4px;
     border: 1px solid #ccc;
@@ -186,6 +197,10 @@ fieldset input{
     border-radius: 2px;
     display:block;
     width:100%;
+}
+fieldset .closedAllDay label{
+    font-size: 0.75rem;
+    font-weight:300;
 }
 fieldset div{
     width:40%;
@@ -258,10 +273,15 @@ button:hover{
     font-weight: bold;
     padding: 5px 15px 5px 15px;
 }
-
 .close-modal:hover,
 .close-modal:focus {
     color: #f0f0f0;
     text-decoration: none;
     cursor: pointer;
+}
+/* mobile modals */
+@media only screen and (max-width: 1000px) {
+    .modal-content {
+        width:80%;
+    }
 }

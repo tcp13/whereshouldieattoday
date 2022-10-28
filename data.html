@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- metadata -->
+		<title>DATA: Where Should I Eat Today?</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- styles -->
+		<link rel="stylesheet" href="styles.css">
+
+		<!-- favicons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+		<link rel="manifest" href="favicons/site.webmanifest">
+		
+		<!-- Google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="container">
+			<img src="burger.png" alt="" style="width:3.157rem;padding-right:15px;vertical-align: -22%;">
+			<h1 style="display:inline;">Where Should I Eat Today?</h1>
+			<p>Use import/export to sync data across devices.</p>
+			
+			<!-- import form -->
+			<div id="importForm">
+				<h2>Import Data:</h2>
+				<textarea id="importField" aria-label="import data" autocomplete="off" rows="10" cols="50"></textarea>
+				<br>
+				<button id="importButton" type="button" onclick="importData();">Import</button>
+				<p id="importStatus" style="display:inline;margin-left:20px;"></p>
+			</div>
+
+			<!-- export form -->
+			<div id="exportForm">
+				<h2>Export Data:</h2>
+				<textarea id="exportField" aria-label="import data" autocomplete="off" rows="10" cols="50"></textarea>
+				<br>
+				<button id="exportButton" type="button" onclick="exportData();">Export</button>
+				<p id="exportStatus" style="display:inline;margin-left:20px;"></p>
+			</div>
+		</div>
+		<div style="display:block;height:5rem;clear:left;"></div>
+	</body>
+	
+	<footer>
+
+		<p class="footer-text"><strong>WSIET? v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a> | <a href="https://tyler-puckett.com/#page-section-627c16fe9e1aa7738a176d15" target="_blank">Feedback</a></p>
+
+		<!-- scripts -->
+		<script>
+			function importData(){
+				window.localStorage.setItem("data", $("#importField").val());
+				$("#importStatus").text("Imported!");
+			}
+			function exportData(){
+				$("#exportField").val((window.localStorage.getItem("data")));
+
+				// copy to clipboard
+				var copyText = document.getElementById("exportField");
+				copyText.select();
+				copyText.setSelectionRange(0, 99999);
+				navigator.clipboard.writeText(copyText.value);
+
+				$("#exportStatus").text("Copied to Clipboard!");
+			}
+		</script>
+	</footer>
+</html>

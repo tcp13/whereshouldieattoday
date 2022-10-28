@@ -134,17 +134,47 @@ function checkIfOpen(rest){
 
 function addRestaurant(){
   /* input validation */
+
+  function validateTimes(day){
+    if($("#add" + day + "Open").val()){
+      if($("#add" + day + "Open").val() >= $("#add" + day + "Close").val()){
+        console.log("%c" + day + ": error. Open is after close.", "color:orange");
+        return true; //error
+      }
+      else{
+        console.log("%c" + day + ": valid. Close is after open.", "color:orange");
+        return false //no error
+      }
+    }
+    else{
+      console.log("%c" + day + ": valid. Not open at all.", "color:orange");
+      return false; //no error
+    }
+  }
+
   $(".error-alert").remove();
   if(document.getElementById("addName").value == ""){
     $("#addManual").append("<p class='error-alert'>Error: Missing restaurant name.</p>");
   }
-  else if(document.getElementById("addMonOpen").value >= document.getElementById("addMonClose").value ||
-  document.getElementById("addTueOpen").value >= document.getElementById("addTueClose").value ||
-  document.getElementById("addWedOpen").value >= document.getElementById("addWedClose").value ||
-  document.getElementById("addThuOpen").value >= document.getElementById("addThuClose").value ||
-  document.getElementById("addFriOpen").value >= document.getElementById("addFriClose").value ||
-  document.getElementById("addSatOpen").value >= document.getElementById("addSatClose").value ||
-  document.getElementById("addSunOpen").value >= document.getElementById("addSunClose").value){
+  else if(validateTimes("Mon")){
+    $("#addManual").append("<p class='error-alert'>Error: Opening times must be before closing times.</p>");
+  }
+  else if(validateTimes("Tue")){
+    $("#addManual").append("<p class='error-alert'>Error: Opening times must be before closing times.</p>");
+  }
+  else if(validateTimes("Wed")){
+    $("#addManual").append("<p class='error-alert'>Error: Opening times must be before closing times.</p>");
+  }
+  else if(validateTimes("Thu")){
+    $("#addManual").append("<p class='error-alert'>Error: Opening times must be before closing times.</p>");
+  }
+  else if(validateTimes("Fri")){
+    $("#addManual").append("<p class='error-alert'>Error: Opening times must be before closing times.</p>");
+  }
+  else if(validateTimes("Sat")){
+    $("#addManual").append("<p class='error-alert'>Error: Opening times must be before closing times.</p>");
+  }
+  else if(validateTimes("Sun")){
     $("#addManual").append("<p class='error-alert'>Error: Opening times must be before closing times.</p>");
   }
   else{
@@ -309,6 +339,25 @@ async function addRestaurantFromId(id, name){
 function switchToManual(){
   $("#addAuto").hide();
   $("#addManual").show();
+
+  function setDefaultValues(day){
+    $("#check" + day).prop("checked", false);
+    $("#add" + day + "Open").show();
+    $("#add" + day + "Close").show();
+    $("label[for='add" + day + "Open'").show();
+    $("label[for='add" + day + "Close'").show();
+    $("#add" + day + "Open").val("09:00");
+    $("#add" + day + "Close").val("17:00");
+    checkboxListener(day);
+  }
+
+  setDefaultValues("Mon");
+  setDefaultValues("Tue");
+  setDefaultValues("Wed");
+  setDefaultValues("Thu");
+  setDefaultValues("Fri");
+  setDefaultValues("Sat");
+  setDefaultValues("Sun");
 }
 
 function switchToAuto(){
@@ -323,6 +372,25 @@ function alphabetize(list){
     return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
   })
   $.each(listitems, function(idx, itm) { mylist.append(itm); });
+}
+
+function checkboxListener(day){
+  $("#check" + day).change(function(){
+    if(this.checked){
+      $("#add" + day + "Open").hide();
+      $("#add" + day + "Close").hide();
+      $("label[for='add" + day + "Open'").hide();
+      $("label[for='add" + day + "Close'").hide();
+      $("#add" + day + "Open").val("");
+      $("#add" + day + "Close").val("");
+    }
+    else{
+      $("#add" + day + "Open").show();
+      $("#add" + day + "Close").show();
+      $("label[for='add" + day + "Open'").show();
+      $("label[for='add" + day + "Close'").show();
+    }
+  });
 }
 
 /* keyboard support for forms */

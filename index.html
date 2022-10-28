@@ -4,6 +4,7 @@
 		<!-- metadata -->
 		<title>Where Should I Eat Today?</title>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- styles -->
 		<link rel="stylesheet" href="styles.css">
@@ -68,64 +69,85 @@
 					<fieldset>
 						<legend>Sundays:</legend>
 						<div>
-							<label for="addSunOpen">Open:</label><input type="time" id="addSunOpen" value="09:00">
+							<label for="addSunOpen">Open:</label><input type="time" id="addSunOpen">
 						</div>
 						<div>
-							<label for="addSunClose">Close:</label><input type="time" id="addSunClose" value="17:00">
+							<label for="addSunClose">Close:</label><input type="time" id="addSunClose">
+						</div>
+						<div class="closedAllDay">
+							<input type="checkbox" id="checkSun"><label for="checkSun"> Closed All Day</label>
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Mondays:</legend>
 						<div>
-							<label for="addMonOpen">Open:</label><input type="time" id="addMonOpen" value="09:00">
+							<label for="addMonOpen">Open:</label><input type="time" id="addMonOpen">
 						</div>
 						<div>
-							<label for="addMonClose">Close:</label><input type="time" id="addMonClose" value="17:00">
+							<label for="addMonClose">Close:</label><input type="time" id="addMonClose">
+						</div>
+						<div class="closedAllDay">
+							<input type="checkbox" id="checkMon"><label for="checkMon"> Closed All Day</label>
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Tuesdays:</legend>
 						<div>
-							<label for="addTueOpen">Open:</label><input type="time" id="addTueOpen" value="09:00">
+							<label for="addTueOpen">Open:</label><input type="time" id="addTueOpen">
 						</div>
 						<div>
-							<label for="addTueClose">Close:</label><input type="time" id="addTueClose" value="17:00">
+							<label for="addTueClose">Close:</label><input type="time" id="addTueClose">
+						</div>
+						<div class="closedAllDay">
+							<input type="checkbox" id="checkTue"><label for="checkTue"> Closed All Day</label>
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Wednesdays:</legend>
 						<div>
-							<label for="addWedOpen">Open:</label><input type="time" id="addWedOpen" value="09:00">
+							<label for="addWedOpen">Open:</label><input type="time" id="addWedOpen">
 						</div>
 						<div>
-							<label for="addWedClose">Close:</label><input type="time" id="addWedClose" value="17:00">
+							<label for="addWedClose">Close:</label><input type="time" id="addWedClose">
+						</div>
+						<div class="closedAllDay">
+							<input type="checkbox" id="checkWed"><label for="checkWed"> Closed All Day</label>
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Thursdays:</legend>
 						<div>
-							<label for="addThuOpen">Open:</label><input type="time" id="addThuOpen" value="09:00">
+							<label for="addThuOpen">Open:</label><input type="time" id="addThuOpen">
 						</div>
 						<div>
-							<label for="addThuClose">Close:</label><input type="time" id="addThuClose" value="17:00">
+							<label for="addThuClose">Close:</label><input type="time" id="addThuClose">
+						</div>
+						<div class="closedAllDay">
+							<input type="checkbox" id="checkThu"><label for="checkThu"> Closed All Day</label>
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Fridays:</legend>
 						<div>
-							<label for="addFriOpen">Open:</label><input type="time" id="addFriOpen" value="09:00">
+							<label for="addFriOpen">Open:</label><input type="time" id="addFriOpen">
 						</div>
 						<div>
-							<label for="addFriClose">Close:</label><input type="time" id="addFriClose" value="17:00">
+							<label for="addFriClose">Close:</label><input type="time" id="addFriClose">
+						</div>
+						<div class="closedAllDay">
+							<input type="checkbox" id="checkFri"><label for="checkFri"> Closed All Day</label>
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Saturdays:</legend>
 						<div>
-							<label for="addSatOpen">Open:</label><input type="time" id="addSatOpen" value="09:00">
+							<label for="addSatOpen">Open:</label><input type="time" id="addSatOpen">
 						</div>
 						<div>
-							<label for="addSatClose">Close:</label><input type="time" id="addSatClose" value="17:00">
+							<label for="addSatClose">Close:</label><input type="time" id="addSatClose">
+						</div>
+						<div class="closedAllDay">
+							<input type="checkbox" id="checkSat"><label for="checkSat"> Closed All Day</label>
 						</div>
 					</fieldset>
 					<button type="button" onclick="addRestaurant();">Add</button>
