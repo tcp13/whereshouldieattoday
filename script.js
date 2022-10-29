@@ -234,9 +234,13 @@ function retrieveData(){
   {
     data = JSON.parse(window.localStorage.getItem("data"));
     console.log("retrieved: " + JSON.stringify(data));
+    if(!JSON.parse(window.localStorage.getItem("data")).restaurants[0]){
+      tutorialPrompt();
+    }
   }
   else{
     data = {"restaurants":[]}
+    tutorialPrompt();
   }
 }
 
@@ -391,6 +395,10 @@ function checkboxListener(day){
       $("label[for='add" + day + "Close'").show();
     }
   });
+}
+
+function tutorialPrompt(){
+  toggleModalVisibility("tutorialModal");
 }
 
 /* keyboard support for forms */

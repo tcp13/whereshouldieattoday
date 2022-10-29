@@ -103,6 +103,17 @@ ul#open li, ul#closed li{
         -webkit-columns: 1;
         -moz-columns: 1;
     }
+    #nav button{
+        padding: 16px 5px 16px 5px;
+    }
+    footer{
+        width:100%;
+        padding-left:2%;
+    }
+    .footer-text{
+        float:left !important;
+        margin-left:5px;
+    }
 }
 
 
@@ -152,6 +163,10 @@ a:hover {color:#0f0f0f;}
 .closing-icon {
     width:0.8rem;
     height:0.8rem;
+}
+.nav-icon {
+    width:1.5rem;
+    height:1.5rem;
 }
 #random-result {
     font-size: 3.157rem;

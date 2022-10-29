@@ -2,8 +2,24 @@
 <html lang="en">
 	<head>
 		<!-- metadata -->
-		<title>The Fine Print - Project Launch Site</title>
+		<title>Where Should I Eat Today?</title>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- seo -->
+		<title>Where Should I Eat Today?</title>
+		<meta name="title" content="Where Should I Eat Today?">
+		<meta name="description" content="See at a quick glance which of your favorite restaurants are currently open. No more trying to remember if that sushi place is closed on Mondays!">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://whereshouldieat.today/">
+		<meta property="og:title" content="Where Should I Eat Today?">
+		<meta property="og:description" content="See at a quick glance which of your favorite restaurants are currently open. No more trying to remember if that sushi place is closed on Mondays!">
+		<meta property="og:image" content="burger-thumbnail.png">
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://whereshouldieat.today/">
+		<meta property="twitter:title" content="Where Should I Eat Today?">
+		<meta property="twitter:description" content="See at a quick glance which of your favorite restaurants are currently open. No more trying to remember if that sushi place is closed on Mondays!">
+		<meta property="twitter:image" content="burger-thumbnail.png">
 
 		<!-- styles -->
 		<link rel="stylesheet" href="styles.css">
@@ -18,13 +34,16 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	</head>
 	<body class="stripe">
 		<div class="container">
-			<img src="rocket.png" alt="" style="width:10%;margin-top:5%;">
-			<h1 style="margin-top:0px;">The Fine Print</h1>
+			<img src="burger.png" alt="" style="width:3.157rem;padding-right:15px;vertical-align: -22%;">
+			<h1 style="display:inline;">The Fine Print</h1>
 
-			<p>Please read these Terms of Use carefully before using www.projectlaunchsite.com (the "Website") created and maintained by Tyler Puckett (collectively with his agents and affiliates, "Project Launch Site"). By accessing Project Launch Site's content, products, features, services, and applications in any manner, you agree to these legally binding Terms of Use and all other operating policies that may be published by Project Launch Site and updated without notice to you.</p>
+			<p>Please read these Terms of Use carefully before using www.whereshouldieat.today (the "Website") created and maintained by Tyler Puckett (collectively with his agents and affiliates, "Project Launch Site"). By accessing Project Launch Site's content, products, features, services, and applications in any manner, you agree to these legally binding Terms of Use and all other operating policies that may be published by Project Launch Site and updated without notice to you.</p>
 
 			<h2>Eligibility</h2>
 			<ul>
@@ -58,14 +77,16 @@
 			<ul>
 				<li>This Website may link to third-party content created and maintained by other people and organizations. Project Launch Site is not responsible for external or embedded third-party content.</li>
 				<li>You acknowledge and agree that any third-party content provided through this Website may be governed by separate terms and policies.</li>
-				<li>Third party services used to publish, host, and maintain this Website include: <a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service" target="_blank">GitHub</a>, <a href="https://www.hover.com/tos" target="_blank">Hover</a>, and <a href="https://policies.google.com/terms?hl=en" target="_blank">Google Fonts</a></li>
+				<li>Third party services used to publish, host, and maintain this Website include: <a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service" target="_blank">GitHub</a>, <a href="https://www.hover.com/tos" target="_blank">Hover</a>, <a href="https://cloud.google.com/terms" target="_blank">Google Cloud Platform</a>, <a href="https://openjsf.org/wp-content/uploads/sites/84/2021/04/OpenJS-Foundation-Terms-of-Use-2019-11-15.pdf" target="_blank">jQuery</a>, <a href="https://developers.google.com/maps/terms-20180207" target="_blank">Google Maps</a>, and <a href="https://policies.google.com/terms?hl=en" target="_blank">Google Fonts</a></li>
 			</ul>
 
 			<h2>Privacy Policy</h2>
 			<ul>
-				<li>Project Launch Site does not collect any user data from this Website.</li>
-				<li>Project Launch Site does not use any cookies on this Website.</li>
-				<li>Project Launch site will never share your personal information with anyone unless we reasonably believe such action is necessary to satisfy any applicable law or enforce our Terms of Use.</li>
+				<li>Project Launch Site does not collect any personal information from this Website.</li>
+				<li>This Website does not use any cookies.</li>
+				<li>This Website saves non-identifiable user data (such as saved restaurants) to the web browser's local storage to provide a persistent experience between visits to this Website.</li>
+				<li>This Website requests location data to assist with search functionality. This feature is optional and can be declined when prompted by the web browser.</li>
+				<li>Project Launch site will never share user data with anyone unless we reasonably believe such action is necessary to satisfy any applicable law or enforce our Terms of Use.</li>
 			</ul>
 
 			<h2>Accessibility Statement</h2>
@@ -77,7 +98,7 @@
 
 			<h2>Miscellaneous</h2>
 			<ul>
-				<li>Any information or recommendations provided by this Website do not constitute legal, financial, or professional advice.</li>
+				<li>Any information or recommendations provided by this Website do not constitute professional advice.</li>
 				<li>You are solely responsible for any of your obligations under applicable laws, rules, or regulations.</li>
 				<li>Project Launch Site reserves the right to modify or terminate this Website at any time.</li>
 			</ul>
@@ -85,11 +106,10 @@
 			<h2>Feedback</h2>
 			<p>You are welcome to <a href="https://tyler-puckett.com/#page-section-627c16fe9e1aa7738a176d15" target="_blank">contact Project Launch Site</a> with any questions or feedback.</p>
 			
-
+			<p class="footer-text" style="float:left!important;"><strong>WSIET? v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a> | <a href="https://tyler-puckett.com/#page-section-627c16fe9e1aa7738a176d15" target="_blank">Feedback</a></p>
+			<br>
+			<br>
+			<br>
 		</div>
 	</body>
-	
-	<footer>
-		<p class="footer-text"><strong>Project Launch Site v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a></p>
-	</footer>
 </html>

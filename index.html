@@ -6,6 +6,21 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<!-- seo -->
+		<title>Where Should I Eat Today?</title>
+		<meta name="title" content="Where Should I Eat Today?">
+		<meta name="description" content="See at a quick glance which of your favorite restaurants are currently open. No more trying to remember if that sushi place is closed on Mondays!">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://whereshouldieat.today/">
+		<meta property="og:title" content="Where Should I Eat Today?">
+		<meta property="og:description" content="See at a quick glance which of your favorite restaurants are currently open. No more trying to remember if that sushi place is closed on Mondays!">
+		<meta property="og:image" content="burger-thumbnail.png">
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://whereshouldieat.today/">
+		<meta property="twitter:title" content="Where Should I Eat Today?">
+		<meta property="twitter:description" content="See at a quick glance which of your favorite restaurants are currently open. No more trying to remember if that sushi place is closed on Mondays!">
+		<meta property="twitter:image" content="burger-thumbnail.png">
+
 		<!-- styles -->
 		<link rel="stylesheet" href="styles.css">
 
@@ -174,27 +189,37 @@
 			</div>
 		</div>
 
+		<!-- modal - tutorial -->
+		<div id="tutorialModal" class="modal modal-hidden">
+			<div class="modal-content">
+				<button aria-label="close popup" type="button" class="close-modal" onclick="toggleModalVisibility('tutorialModal');">&times;</button>
+				<h2>Not sure where to eat today?</h2>
+				<p><strong>"Where Should I Eat Today?"</strong> shows you at a quick glance which of your favorite restaurants are currently open. No more trying to remember if that sushi place is closed on Mondays!</p>
+				<p>Start by adding a few of your favorite restaurants. You can search for local places and easily import their hours from Google Maps data.</p>
+				<img src="tutorial.gif" alt="" style="width:100%;">
+				<p>Next time you're ready to eat, choose from your list or use the "Random" button to figure out where to go!</p>
+				<button type="button" onclick="toggleModalVisibility('tutorialModal');">Got it!</button>
+			</div>
+		</div>
+
 		
 	</body>
 	
 	<footer>
-		<button onclick="chooseRandom();">
-			<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M36.5 44q-.65 0-1.075-.425Q35 43.15 35 42.5V28h-2.75q-1.25 0-2.125-.875T29.25 25V12.75q0-3.95 2.4-6.35Q34.05 4 38 4v38.5q0 .65-.425 1.075Q37.15 44 36.5 44Zm-20.75 0q-.65 0-1.075-.425-.425-.425-.425-1.075V25.6q-2.6-.55-4.425-2.625Q8 20.9 8 18V5.5q0-.65.425-1.075Q8.85 4 9.5 4q.65 0 1.075.425Q11 4.85 11 5.5V18h3.25V5.5q0-.65.425-1.075Q15.1 4 15.75 4q.65 0 1.075.425.425.425.425 1.075V18h3.25V5.5q0-.65.425-1.075Q21.35 4 22 4q.65 0 1.075.425.425.425.425 1.075V18q0 2.9-1.825 4.975Q19.85 25.05 17.25 25.6v16.9q0 .65-.425 1.075Q16.4 44 15.75 44Z"/></svg>
-			<span class="nav-text">Random</span>
-		</button>
-		<button onclick="toggleModalVisibility('addModal');locateZip();">
-			<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M24 38.85q-1 0-1.675-.675T21.65 36.5V26.35H11.5q-1 0-1.675-.675T9.15 24q0-1 .675-1.675t1.675-.675h10.15V11.5q0-1 .675-1.675T24 9.15q1 0 1.675.675t.675 1.675v10.15H36.5q1 0 1.675.675T38.85 24q0 1-.675 1.675t-1.675.675H26.35V36.5q0 1-.675 1.675T24 38.85Z"/></svg>
-			<span class="nav-text">Add</span>
-		</button>
-		<button onclick="toggleModalVisibility('removeModal');">
-			<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M11.5 26.35q-1 0-1.675-.675T9.15 24q0-1 .675-1.675t1.675-.675h25q1 0 1.675.675T38.85 24q0 1-.675 1.675t-1.675.675Z"/></svg>
-			<span class="nav-text">Remove</span>
-		</button>
-
-		<!--
-		<button onclick="refreshLists();">Refresh Lists</button>
-		<button onclick="resetData();">Reset Data</button>
-		-->
+		<div id="nav" style="float:left;height:100%;">
+			<button onclick="chooseRandom();">
+				<img class='nav-icon' src='icons/random.svg' alt="">
+				<span class="nav-text">Random</span>
+			</button>
+			<button onclick="toggleModalVisibility('addModal');locateZip();">
+				<img class='nav-icon' src='icons/add.svg' alt="">
+				<span class="nav-text">Add</span>
+			</button>
+			<button onclick="toggleModalVisibility('removeModal');">
+				<img class='nav-icon' src='icons/remove.svg' alt="">
+				<span class="nav-text">Remove</span>
+			</button>
+		</div>
 
 		<p class="footer-text"><strong>WSIET? v1.0</strong><br>Tyler Puckett © 2022<br><a href="/terms.html">Terms of Use</a> | <a href="https://tyler-puckett.com/#page-section-627c16fe9e1aa7738a176d15" target="_blank">Feedback</a></p>
 
