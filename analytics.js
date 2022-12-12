@@ -10,7 +10,7 @@ $.ajax({
         "url": document.location.href,
         "title": document.title,
         "referrer": document.referrer,
-        "width": document.clientWidth,
+        "width": screen.width,
         "language": navigator.language,
         "useragent": navigator.userAgent
     },
